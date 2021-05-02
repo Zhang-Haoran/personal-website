@@ -12,7 +12,7 @@ const pool = new Pool({
 async function getBlogsFromDB() {
     return new Promise(((resolve, reject) => {
         pool.query(
-            "SELECT * FROM blogs;",
+            "SELECT * FROM blogs ORDER BY created_time DESC;",
             (err, result) => {
                 if (err) {
                     console.log(`Can't fetch data`);
