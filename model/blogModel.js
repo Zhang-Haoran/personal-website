@@ -1,4 +1,4 @@
-const tools = require("../tools/tools");
+const tools = require("../utils/tools");
 const Pool = require('pg').Pool;
 //connect to DB
 const pool = new Pool({
@@ -41,7 +41,7 @@ async function postBlogIntoDB(title,content){
     }));
 }
 //updated blog based on id
-async function updateBlog(id,title,content){
+async function updateBlogFromDB(id, title, content){
     return new Promise(((resolve, reject) => {
         pool.query(
             `UPDATE blogs SET title = '${title}', content = '${content}', updated_time = '${tools.timeFormatter(new Date().getTime())}' WHERE id = ${id};`,
@@ -57,7 +57,7 @@ async function updateBlog(id,title,content){
     }));
 }
 //delete blog based on id
-async function deleteBlog(id){
+async function deleteBlogFromDB(id){
     return new Promise(((resolve, reject) => {
         pool.query(
             `DELETE FROM blogs WHERE id = ${id};`,
@@ -72,4 +72,4 @@ async function deleteBlog(id){
         )
     }));
 }
-module.exports = {getBlogsFromDB,postBlogIntoDB,updateBlog,deleteBlog};
+module.exports = {getBlogsFromDB,postBlogIntoDB,updateBlogFromDB,deleteBlogFromDB};
