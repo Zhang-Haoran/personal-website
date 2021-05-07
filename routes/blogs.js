@@ -4,9 +4,9 @@ const blogController = require('../controller/blogController');
 /* GET blogs listing. */
 router.get('/', blogController.getBlogs);
 //POST blogs
-router.post('/add',blogController.addBlog);
+router.post('/',blogController.addBlog);
 //UPDATE blog based on id
-router.put('/update',blogController.updateBlog);
+router.put('/',blogController.updateBlog);
 //DELETE blog based on id
-router.delete('/delete',blogController.deleteBlog);
+router.delete('/',blogController.deleteBlog);
 module.exports = router;
