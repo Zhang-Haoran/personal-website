@@ -2,10 +2,10 @@ const tools = require("../utils/tools");
 const Pool = require('pg').Pool;
 //connect to DB
 const pool = new Pool({
-    user: "haoranzhang",
+    user: "postgres",
     host: "localhost",
-    database: "postgres",
-    password: "",
+    database: "personalwebsite",
+    password: "123",
     port: "5432"
 });
 //get blogs data from database
